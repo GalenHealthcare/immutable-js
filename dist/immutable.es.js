@@ -753,7 +753,11 @@ function smi(i32) {
 var defaultValueOf = Object.prototype.valueOf;
 
 function hash(o) {
-  if (o.valueOf !== defaultValueOf && typeof o.valueOf === 'function') {
+  if (
+    o !== null &&
+    o.valueOf !== defaultValueOf &&
+    typeof o.valueOf === 'function'
+  ) {
     o = o.valueOf(o);
   }
 
