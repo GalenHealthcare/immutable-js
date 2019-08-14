@@ -10,7 +10,11 @@ import { smi } from './Math';
 const defaultValueOf = Object.prototype.valueOf;
 
 export function hash(o) {
-  if (o.valueOf !== defaultValueOf && typeof o.valueOf === 'function') {
+  if (
+    o !== null &&
+    o.valueOf !== defaultValueOf &&
+    typeof o.valueOf === 'function'
+  ) {
     o = o.valueOf(o);
   }
 
